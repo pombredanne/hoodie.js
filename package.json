@@ -49,8 +49,7 @@
   },
   "scripts": {
     "test": "grunt build --verbose",
-    "build": "grunt build --verbose",
-    "postinstall": "bower install"
+    "build": "grunt build --verbose"
   },
   "browser": {
     "path": false,
