@@ -30,6 +30,9 @@
 //
 var errorMessageReplacePattern = /\{\{\s*\w+\s*\}\}/g;
 var errorMessageFindPropertyPattern = /\w+/;
+
+var extend = require('extend');
+
 function HoodieError(properties) {
 
   // normalize arguments
@@ -47,7 +50,8 @@ function HoodieError(properties) {
     properties.name = 'HoodieError';
   }
 
-  $.extend(this, properties);
+  extend(this, properties);
+
   properties.message = properties.message.replace(errorMessageReplacePattern, function(match) {
     var property = match.match(errorMessageFindPropertyPattern)[0];
     return properties[property];
